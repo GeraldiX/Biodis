@@ -1,38 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>BIODIS</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+body{
+    margin:0;
+    font-family: Arial;
+    background:#0f1f17;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.box{
+    background:#163326;
+    padding:30px;
+    border-radius:15px;
+    width:320px;
+    text-align:center;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#6ad06a;
+    cursor:pointer;
+    font-weight:bold;
+}
+</style>
 
 </head>
 
 <body>
 
-<div class="login-box">
+<div class="box">
+    <h1>🧬 BIODIS</h1>
+    <p>Arquivo Geraldão</p>
 
-<h1>BIODIS</h1>
+    <input placeholder="Bio-nome">
+    <input type="password" placeholder="Passe a Word">
 
-<p>Arquivo Geraldão</p>
-
-<label>Bio-nome:</label>
-<input type="text">
-
-<label>Passe a Word:</label>
-<input type="password">
-
-<button>
-Entrar no laboratório
-</button>
-
+    <a href="home.html">
+        <button type="button">Entrar no laboratório</button>
+    </a>
 </div>
 
 </body>
-
 </html>
