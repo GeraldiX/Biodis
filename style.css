@@ -1,0 +1,86 @@
+body {
+    background-color: #000000; /* Preto absoluto do fundo da Matrix */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace; /* Fonte estilo terminal de computador */
+    margin: 0;
+    overflow: hidden;
+}
+
+.login-box {
+    background-color: rgba(0, 5, 0, 0.9); /* Caixinha preta quase invisível */
+    padding: 40px;
+    border-radius: 8px;
+    width: 340px;
+    color: #39ff14; /* Letras em Verde Neon clássico */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+    /* Linha verde fina em volta e brilho neon suave */
+    border: 1px solid #00ff00; 
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); 
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    /* Efeito de brilho no título principal */
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; 
+}
+
+p {
+    text-align: center;
+    color: #00ff00;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input {
+    padding: 12px;
+    background-color: #000000; /* Fundo do input também é preto */
+    border: 1px solid #00ff00; /* Borda verde */
+    border-radius: 4px;
+    color: #39ff14; /* Texto digitado sai em verde neon */
+    font-family: 'Courier New', monospace;
+    outline: none;
+}
+
+/* Deixa a borda do input brilhando quando você clica para digitar */
+input:focus {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+button {
+    padding: 14px;
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+    background-color: #00ff00; /* Botão todo verde */
+    color: #000000; /* Texto do botão em preto */
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+/* Efeito visual quando passa o mouse por cima do botão */
+button:hover {
+    background-color: #000000;
+    color: #00ff00;
+    box-shadow: 0 0 15px #00ff00;
+}
