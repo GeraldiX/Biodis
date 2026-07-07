@@ -1,94 +1,103 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
-<title>BIODIS - Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-body{
-    margin:0;
-    font-family: Arial;
-    background:#0e1c15;
-    color:white;
-}
+<title>BIODIS OS</title>
 
-header{
-    background:#163326;
-    padding:20px;
-    text-align:center;
-}
+<link rel="stylesheet" href="style.css">
 
-nav{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    background:#12281e;
-    padding:15px;
-}
-
-nav button{
-    background:#1f4d38;
-    border:none;
-    color:white;
-    padding:10px 15px;
-    border-radius:10px;
-    cursor:pointer;
-}
-
-section{
-    padding:20px;
-}
-
-.card{
-    background:#163326;
-    padding:15px;
-    margin-bottom:15px;
-    border-radius:10px;
-}
-
-.hidden{
-    display:none;
-}
-</style>
 </head>
 
-<body>
+<body class="home">
 
-<header>
-🧬 BIODIS — Arquivo Geraldão
+<header class="topo">
+
+<div class="perfil">
+
+<div class="avatar">
+
+<img src="assets/avatares/geraldao.png" alt="Avatar">
+
+</div>
+
+<div>
+
+<h1>BIODIS OS v1.0</h1>
+
+<p><strong>Jogadora:</strong> Geraldão</p>
+
+<p><strong>Nome civil:</strong> Letícia</p>
+
+<p><strong>Classe:</strong> Bióloga em treinamento</p>
+
+<p><strong>Mapa:</strong> UFRJ</p>
+
+<p><strong>Versão:</strong> 2026.2</p>
+
+</div>
+
+</div>
+
+<div class="progresso">
+
+<h2>Progresso</h2>
+
+<div class="barra">
+
+<div class="preenchimento"></div>
+
+</div>
+
+<p>18%</p>
+
+</div>
+
 </header>
 
-<nav>
-<button onclick="show('bio')">🧬 Biologia</button>
-<button onclick="show('geraldis')">🦖 Geraldis</button>
-<button onclick="show('criacoes')">🎨 Criações</button>
-</nav>
+<section class="intro">
 
-<section>
+<p>
 
-<div id="bio" class="card">
-🧬 Conteúdo de Biologia vai aqui
-</div>
+"O BIODIS nasceu para guardar minhas descobertas, minhas plantas,
+minhas observações e todas as pequenas bizarrices biológicas
+que encontro por aí."
 
-<div id="geraldis" class="card hidden">
-🦖 Zoeira da Geraldão vai aqui
-</div>
-
-<div id="criacoes" class="card hidden">
-🎨 Artesanato e criações aqui
-</div>
+</p>
 
 </section>
 
-<script>
-function show(id){
-    document.getElementById("bio").classList.add("hidden");
-    document.getElementById("geraldis").classList.add("hidden");
-    document.getElementById("criacoes").classList.add("hidden");
+<nav class="categorias">
 
-    document.getElementById(id).classList.remove("hidden");
-}
-</script>
+<button>🌿 Plantas</button>
+
+<button>🍄 Fungos</button>
+
+<button>🧭 Em Campo</button>
+
+<button>🔬 Descobertas</button>
+
+<button>🖼 Mosaico <small>(em breve)</small></button>
+
+</nav>
+
+<section class="feed">
+
+<h2>Registros</h2>
+
+<p>
+
+Nenhum registro disponível.
+
+</p>
+
+</section>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
