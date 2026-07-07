@@ -1,259 +1,1468 @@
-/* =========================================================
-   BIODIS v0.1
-========================================================= */
+/* ===========================================================
+   BIODIS
+   style.css
+   PARTE 1 — RESET • FUNDO • MATRIX • CRT • LAYOUT
+=========================================================== */
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --bg:#030609;
+
+    --green:#49ff85;
+    --green2:#00ffb3;
+
+    --cyan:#59dfff;
+
+    --blue:#3f82ff;
+
+    --purple:#8d5dff;
+
+    --text:#d7fff5;
+
+    --panel:rgba(4,12,18,.82);
+
+    --border:rgba(110,255,215,.30);
+
+    --shadow:0 0 20px rgba(0,255,170,.15);
+
+    --radius:18px;
+
+    --transition:.35s;
+
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:"Share Tech Mono",monospace;
+
+}
+
+/* =======================================================
+   BACKGROUND
+======================================================= */
+
+body{
+
+    position:relative;
+
+}
+
+/* gradiente principal */
+
+.bg-gradient{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-8;
+
+    background:
+
+    radial-gradient(circle at 20% 30%,
+    rgba(0,255,170,.16),
+    transparent 42%),
+
+    radial-gradient(circle at 80% 18%,
+    rgba(96,120,255,.18),
+    transparent 38%),
+
+    radial-gradient(circle at 80% 80%,
+    rgba(160,80,255,.20),
+    transparent 40%),
+
+    radial-gradient(circle at 10% 90%,
+    rgba(0,180,255,.15),
+    transparent 36%),
+
+    linear-gradient(
+        135deg,
+        #020406 0%,
+        #061018 30%,
+        #08111f 55%,
+        #05070d 100%
+    );
+
+    animation:bgMove 18s linear infinite alternate;
+
+    filter:saturate(120%);
+
+}
+
+@keyframes bgMove{
+
+    from{
+
+        transform:scale(1)
+        rotate(0deg);
+
+    }
+
+    to{
+
+        transform:scale(1.08)
+        rotate(-2deg);
+
+    }
+
+}
+
+/* =======================================================
+   MATRIX
+======================================================= */
+
+#matrix{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    z-index:-6;
+
+    opacity:.32;
+
+}
+
+/* =======================================================
+   GRID
+======================================================= */
+
+.grid-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-5;
+
+    background-image:
+
+    linear-gradient(
+        rgba(255,255,255,.025) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.025) 1px,
+        transparent 1px
+    );
+
+    background-size:
+
+        55px 55px,
+        55px 55px;
+
+    animation:gridMove 10s linear infinite;
+
+}
+
+@keyframes gridMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(55px);
+
+    }
+
+}
+
+/* =======================================================
+   CRT
+======================================================= */
+
+.scanlines{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:500;
+
+    background:
+
+    repeating-linear-gradient(
+
+        to bottom,
+
+        rgba(255,255,255,.02),
+
+        rgba(255,255,255,.02) 2px,
+
+        rgba(0,0,0,.05) 4px,
+
+        rgba(0,0,0,.05) 6px
+
+    );
+
+    mix-blend-mode:overlay;
+
+    opacity:.65;
+
+}
+
+.vignette{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:400;
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        transparent 58%,
+
+        rgba(0,0,0,.45) 100%
+
+    );
+
+}
+
+/* =======================================================
+   GLITCH
+======================================================= */
+
+.glitch-layer{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:300;
+
+    opacity:.08;
+
+    background:
+
+    linear-gradient(
+
+        transparent 0%,
+
+        rgba(0,255,255,.6) 50%,
+
+        transparent 100%
+
+    );
+
+    animation:glitchLayer 7s infinite;
+
+}
+
+@keyframes glitchLayer{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    5%{
+
+        transform:translateX(-8px);
+
+    }
+
+    6%{
+
+        transform:translateX(7px);
+
+    }
+
+    7%{
+
+        transform:translateX(-4px);
+
+    }
+
+    8%{
+
+        transform:translateX(0);
+
+    }
+
+    100%{
+
+        transform:translateX(0);
+
+    }
+
+}
+
+/* =======================================================
+   LAYOUT
+======================================================= */
+
+.screen{
+
+    width:100vw;
+
+    height:100vh;
+
+    display:grid;
+
+    grid-template-columns:
+
+        1fr
+        700px
+        1fr;
+
+    align-items:center;
+
+    justify-items:center;
+
+    gap:20px;
+
+    padding:30px;
+
+}
+
+/* =======================================================
+   PERSONAGENS
+======================================================= */
+
+.character{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    height:100%;
+
+}
+
+.character img{
+
+    max-height:82vh;
+
+    width:auto;
+
+    object-fit:contain;
+
+    user-select:none;
+
+    pointer-events:none;
+
+    filter:
+
+    drop-shadow(0 0 12px rgba(0,255,180,.25))
+    drop-shadow(0 0 45px rgba(0,160,255,.20));
+
+    animation:floatCharacter 5s ease-in-out infinite;
+
+}
+
+.character-glow{
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(0,255,180,.22),
+
+        rgba(0,130,255,.08),
+
+        transparent
+
+    );
+
+    filter:blur(45px);
+
+    animation:glowPulse 5s infinite ease-in-out;
+
+}
+
+.left-character{
+
+    justify-content:flex-end;
+
+}
+
+.right-character{
+
+    justify-content:flex-start;
+
+}
+
+@keyframes floatCharacter{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-14px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes glowPulse{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:.55;
+
+    }
+
+    50%{
+
+        transform:scale(1.18);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:.55;
+
+    }
+
+}
+
+/* =======================================================
+   CENTRO
+======================================================= */
+
+.center-panel{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+```css
+/* ===========================================================
+   BIODIS
+   style.css
+   PARTE 2 — BIOS • LOGIN • CAMPOS • BOTÕES • GLITCH
+=========================================================== */
+
+/* =========================
+   BIOS
+========================= */
+
+.bios-window{
+
+    width:100%;
+    min-height:520px;
+
+    background:rgba(2,8,14,.90);
+
+    border:1px solid rgba(80,255,190,.28);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 0 35px rgba(0,255,180,.08),
+        inset 0 0 40px rgba(0,255,180,.03);
+
+}
+
+.bios-header{
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    padding:14px 18px;
+
+    background:linear-gradient(
+        90deg,
+        rgba(0,255,170,.15),
+        rgba(60,120,255,.12)
+    );
+
+    border-bottom:1px solid rgba(120,255,220,.20);
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    color:#95ffe0;
+
+    text-transform:uppercase;
+
+}
+
+.bios-text{
+
+    padding:25px;
+
+    font-size:17px;
+
+    line-height:1.75;
+
+    color:#7dffc4;
+
+    white-space:pre-wrap;
+
+    min-height:470px;
+
+    text-shadow:
+        0 0 6px rgba(0,255,140,.30);
+
+}
+
+/* cursor */
+
+.bios-text::after{
+
+    content:"_";
+
+    animation:cursorBlink .9s infinite;
+
+}
+
+@keyframes cursorBlink{
+
+    50%{
+
+        opacity:0;
+
+    }
+
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-window{
+
+    width:100%;
+
+    animation:fadeLogin .8s ease;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+@keyframes fadeLogin{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+.login-border{
+
+    background:rgba(5,13,22,.86);
+
+    border-radius:22px;
+
+    border:1px solid rgba(95,255,205,.30);
+
+    padding:40px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+
+        0 0 40px rgba(0,255,180,.08),
+
+        inset 0 0 30px rgba(0,255,180,.03);
+
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.login-header{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.logo{
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:62px;
+
+    letter-spacing:8px;
+
+    color:#ffffff;
+
+    text-shadow:
+
+        0 0 8px #00ff99,
+
+        0 0 18px #00d4ff,
+
+        0 0 35px #715cff;
+
+}
+
+.subtitle{
+
+    margin-top:10px;
+
+    font-size:15px;
+
+    letter-spacing:3px;
+
+    color:#8ef0ff;
+
+    text-transform:uppercase;
+
+}
+
+/* =========================
+   FORM
+========================= */
+
+form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+.field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.field label{
+
+    color:#9effd5;
+
+    letter-spacing:2px;
+
+    font-size:14px;
+
+}
+
+.field input{
+
+    width:100%;
+
+    padding:16px 18px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(100,255,205,.28);
+
+    background:
+
+        rgba(4,10,17,.85);
+
+    color:white;
+
+    font-size:17px;
+
+    outline:none;
+
+    transition:.35s;
+
+    font-family:"Share Tech Mono",monospace;
+
+}
+
+.field input::placeholder{
+
+    color:#5cb6b9;
+
+}
+
+.field input:focus{
+
+    border-color:#48ff9d;
+
+    box-shadow:
+
+        0 0 18px rgba(0,255,170,.18);
+
+    background:
+
+        rgba(7,18,28,.95);
+
+}
+
+/* =========================
+   BOTÃO
+========================= */
+
+button{
+
+    margin-top:8px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-family:"Orbitron",sans-serif;
+
+    letter-spacing:3px;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        #00ff9d,
+
+        #00c8ff,
+
+        #7b5cff
+
+    );
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+        0 0 22px rgba(0,255,180,.28);
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:80%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,255,255,.40),
+
+            transparent
+
+        );
+
+    transition:.6s;
+
+}
+
+button:hover::before{
+
+    left:150%;
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.login-footer{
+
+    margin-top:28px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    color:#8dffe2;
+
+    letter-spacing:2px;
+
+    font-size:14px;
+
+}
+
+.status-led{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#35ff98;
+
+    box-shadow:
+
+        0 0 12px #35ff98,
+
+        0 0 24px #35ff98;
+
+    animation:ledPulse 1.6s infinite;
+
+}
+
+@keyframes ledPulse{
+
+    50%{
+
+        opacity:.35;
+
+    }
+
+}
+
+/* =========================
+   LOGO GLITCH
+========================= */
+
+.glitch{
+
+    position:relative;
+
+}
+
+.glitch::before,
+.glitch::after{
+
+    content:attr(data-text);
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+}
+
+.glitch::before{
+
+    left:-2px;
+
+    color:#00e5ff;
+
+    clip-path:polygon(0 0,100% 0,100% 42%,0 42%);
+
+    animation:glitchTop 3s infinite;
+
+}
+
+.glitch::after{
+
+    left:2px;
+
+    color:#ff4cff;
+
+    clip-path:polygon(0 58%,100% 58%,100% 100%,0 100%);
+
+    animation:glitchBottom 2.5s infinite;
+
+}
+
+@keyframes glitchTop{
+
+    0%,92%,100%{
+
+        transform:none;
+
+    }
+
+    93%{
+
+        transform:translate(-4px,-2px);
+
+    }
+
+    95%{
+
+        transform:translate(5px,2px);
+
+    }
+
+    97%{
+
+        transform:translate(-3px,1px);
+
+    }
+
+}
+
+@keyframes glitchBottom{
+
+    0%,90%,100%{
+
+        transform:none;
+
+    }
+
+    91%{
+
+        transform:translate(5px,2px);
+
+    }
+
+    93%{
+
+        transform:translate(-5px,-2px);
+
+    }
+
+    96%{
+
+        transform:translate(3px,-1px);
+
+    }
+
+}
+```
+/* ===========================================================
+   BIODIS
+   style.css
+   PARTE 3 — ANIMAÇÕES • HOME • PAINÉIS • RESPONSIVO
+=========================================================== */
+
+/* =======================================================
+   EFEITOS GERAIS
+======================================================= */
+
+@keyframes flicker{
+
+    0%,18%,22%,25%,53%,57%,100%{
+
+        opacity:1;
+
+    }
+
+    20%,24%,55%{
+
+        opacity:.72;
+
+    }
+
 }
 
 body{
 
-font-family:Verdana, Geneva, Tahoma, sans-serif;
-
-background:#d7d7d7;
-
-color:#222;
+    animation:flicker 8s infinite;
 
 }
 
-/* ================= TOPO ================= */
+/* brilho suave dos painéis */
 
-.topo{
+.login-border,
+.bios-window{
 
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-gap:30px;
-
-padding:35px;
-
-background:linear-gradient(#f4f4f4,#dcdcdc);
-
-border-bottom:4px solid #8f8f8f;
-
-box-shadow:0 4px 12px rgba(0,0,0,.2);
+    animation:panelGlow 5s ease-in-out infinite;
 
 }
 
-.perfil{
+@keyframes panelGlow{
 
-display:flex;
+    0%{
 
-align-items:center;
+        box-shadow:
+            0 0 18px rgba(0,255,170,.08),
+            inset 0 0 20px rgba(0,255,170,.03);
 
-gap:20px;
+    }
 
-}
+    50%{
 
-.avatar{
+        box-shadow:
+            0 0 35px rgba(0,255,170,.18),
+            inset 0 0 35px rgba(0,255,170,.08);
 
-width:90px;
+    }
 
-height:90px;
+    100%{
 
-border-radius:50%;
+        box-shadow:
+            0 0 18px rgba(0,255,170,.08),
+            inset 0 0 20px rgba(0,255,170,.03);
 
-overflow:hidden;
-
-background:#fff;
-
-border:3px solid #6f6f6f;
-
-}
-
-.avatar img{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
+    }
 
 }
 
-.perfil h1{
+/* =======================================================
+   HOME
+======================================================= */
 
-font-size:34px;
+.home-page{
 
-margin-bottom:12px;
+    background:#05070d;
 
-font-family:"Courier New",monospace;
-
-color:#244a88;
-
-}
-
-.perfil p{
-
-margin:6px 0;
+    overflow:auto;
 
 }
 
-/* ================= PROGRESSO ================= */
+.home-container{
 
-.progresso{
+    width:min(1500px,95%);
 
-width:260px;
+    margin:auto;
 
-}
-
-.progresso h2{
-
-margin-bottom:12px;
-
-font-size:22px;
+    padding:40px;
 
 }
 
-.barra{
+.home-header{
 
-width:100%;
+    display:flex;
 
-height:24px;
+    justify-content:space-between;
 
-background:#bdbdbd;
+    align-items:center;
 
-border:2px solid #666;
+    gap:25px;
 
-}
-
-.preenchimento{
-
-height:100%;
-
-width:18%;
-
-background:#45c96d;
+    margin-bottom:35px;
 
 }
 
-/* ================= INTRO ================= */
+.home-title{
 
-.intro{
+    font-family:"Orbitron",sans-serif;
 
-margin:30px auto;
+    font-size:42px;
 
-width:90%;
+    letter-spacing:5px;
 
-background:white;
+    color:#ffffff;
 
-padding:25px;
+    text-shadow:
 
-border:2px solid #b9b9b9;
+        0 0 8px #00ff95,
 
-box-shadow:0 3px 10px rgba(0,0,0,.15);
+        0 0 16px #00ccff,
 
-font-size:18px;
-
-line-height:1.6;
+        0 0 30px #835cff;
 
 }
 
-/* ================= CATEGORIAS ================= */
+.home-subtitle{
 
-.categorias{
+    margin-top:8px;
 
-display:flex;
+    color:#8ce7ff;
 
-justify-content:center;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-margin:40px 0;
+    letter-spacing:2px;
 
 }
 
-.categorias button{
+.dashboard{
 
-padding:16px 26px;
+    display:grid;
 
-font-size:17px;
+    grid-template-columns:
 
-cursor:pointer;
+        repeat(auto-fit,minmax(320px,1fr));
 
-background:#ececec;
-
-border:2px solid #8f8f8f;
-
-transition:.2s;
-
-border-radius:8px;
+    gap:25px;
 
 }
 
-.categorias button:hover{
+.card{
 
-background:#d5e8ff;
+    background:rgba(6,13,21,.88);
 
-transform:translateY(-3px);
+    border:1px solid rgba(110,255,215,.22);
 
-}
+    border-radius:18px;
 
-/* ================= FEED ================= */
+    padding:24px;
 
-.feed{
+    backdrop-filter:blur(10px);
 
-width:90%;
+    transition:.35s;
 
-margin:auto;
+    box-shadow:
 
-background:white;
-
-padding:25px;
-
-border:2px solid #bcbcbc;
-
-box-shadow:0 3px 10px rgba(0,0,0,.15);
-
-margin-bottom:60px;
+        0 0 18px rgba(0,255,180,.05);
 
 }
 
-.feed h2{
+.card:hover{
 
-margin-bottom:15px;
+    transform:translateY(-5px);
 
-font-size:28px;
+    border-color:#5effc7;
 
-color:#244a88;
+    box-shadow:
 
-}
-
-/* ================= RESPONSIVO ================= */
-
-@media(max-width:900px){
-
-.topo{
-
-flex-direction:column;
-
-text-align:center;
+        0 0 30px rgba(0,255,180,.18);
 
 }
 
-.perfil{
+.card h2{
 
-flex-direction:column;
+    font-family:"Orbitron",sans-serif;
+
+    font-size:20px;
+
+    margin-bottom:18px;
+
+    color:#9fffe5;
+
+    letter-spacing:2px;
+
+}
+
+.card p{
+
+    color:#cfeeee;
+
+    line-height:1.7;
 
 }
 
-.progresso{
+.card table{
 
-width:100%;
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.card table td{
+
+    padding:10px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
 
 }
 
-.intro{
+.card table tr:last-child td{
 
-font-size:16px;
+    border-bottom:none;
 
 }
+
+/* =======================================================
+   BARRAS
+======================================================= */
+
+.progress{
+
+    width:100%;
+
+    height:10px;
+
+    background:#101820;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    margin-top:10px;
+
+}
+
+.progress span{
+
+    display:block;
+
+    height:100%;
+
+    width:65%;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        #00ff95,
+
+        #00cfff,
+
+        #805dff
+
+    );
+
+    animation:progressMove 4s linear infinite;
+
+}
+
+@keyframes progressMove{
+
+    0%{
+
+        filter:hue-rotate(0deg);
+
+    }
+
+    100%{
+
+        filter:hue-rotate(360deg);
+
+    }
+
+}
+
+/* =======================================================
+   SCROLLBAR
+======================================================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#091018;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#00dca2;
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#59f7d1;
+
+}
+
+/* =======================================================
+   RESPONSIVO
+======================================================= */
+
+@media (max-width:1400px){
+
+    .screen{
+
+        grid-template-columns:
+            260px
+            1fr
+            260px;
+
+    }
+
+    .character img{
+
+        max-height:68vh;
+
+    }
+
+}
+
+@media (max-width:1100px){
+
+    .screen{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .left-character,
+    .right-character{
+
+        display:none;
+
+    }
+
+    .center-panel{
+
+        width:min(720px,95vw);
+
+    }
+
+}
+
+@media (max-width:700px){
+
+    .login-border{
+
+        padding:28px;
+
+    }
+
+    .bios-window{
+
+        min-height:420px;
+
+    }
+
+    .logo{
+
+        font-size:42px;
+
+        letter-spacing:4px;
+
+    }
+
+    .subtitle{
+
+        font-size:12px;
+
+    }
+
+    .field input{
+
+        font-size:15px;
+
+        padding:14px;
+
+    }
+
+    button{
+
+        font-size:15px;
+
+        padding:15px;
+
+    }
+
+    .home-container{
+
+        padding:20px;
+
+    }
+
+    .home-title{
+
+        font-size:30px;
+
+    }
+
+    .dashboard{
+
+        grid-template-columns:1fr;
+
+    }
 
 }
