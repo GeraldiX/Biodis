@@ -2,105 +2,185 @@
 <html lang="pt-BR">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIODIS :: BIOS LOGIN</title>
 
-<title>BIODIS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="login">
+<body class="login-page">
 
-<!-- IMAGENS -->
+    <!-- MATRIX -->
+    <canvas id="matrix"></canvas>
 
-<img src="assets/imagens/matrix.png" class="matrix">
-<img src="assets/imagens/cat.png" class="cat">
+    <!-- GLOW -->
+    <div class="bg-gradient"></div>
 
-<!-- TELA DE INICIALIZAÇÃO -->
+    <!-- GRID -->
+    <div class="grid-overlay"></div>
 
-<div id="boot">
+    <!-- CRT -->
+    <div class="scanlines"></div>
 
-<pre id="bootText">
+    <!-- VINHETA -->
+    <div class="vignette"></div>
 
-BIODIS BIOS v1.0
+    <!-- GLITCH -->
+    <div class="glitch-layer"></div>
 
-Initializing...
-Loading biological database...
-Loading fungi...
-Loading plants...
-Loading weird discoveries...
-Connecting...
+    <main class="screen">
 
-██████████████████████
+        <!-- ET -->
+        <aside class="character left-character">
 
-SYSTEM READY
+            <div class="character-glow"></div>
 
-</pre>
+            <img
+                src="img/et.png"
+                alt="ET"
+                id="alien">
 
-</div>
+        </aside>
 
-<!-- LOGIN -->
+        <!-- CENTRO -->
+        <section class="center-panel">
 
-<div class="terminal" id="loginBox">
+            <!-- BIOS -->
+            <section id="biosBoot" class="bios-window">
 
-<div class="terminal-header">
+                <div class="bios-header">
 
-BIODIS
+                    <span>BIODIS BIOS v3.7</span>
 
-</div>
+                    <span>Initializing...</span>
 
-<div class="terminal-body">
+                </div>
 
-<p class="access">
+                <div id="biosText" class="bios-text"></div>
 
-ACCESS TERMINAL
+            </section>
 
-</p>
+            <!-- LOGIN -->
+            <section id="loginBox" class="login-window hidden">
 
-<label>
+                <div class="login-border">
 
-Bio-nome
+                    <header class="login-header">
 
-</label>
+                        <h1 class="logo glitch"
+                            data-text="BIODIS">
+                            BIODIS
+                        </h1>
 
-<input
-type="text"
-id="usuario"
-placeholder="Digite seu Bio-nome"
->
+                        <p class="subtitle">
+                            Biological Data Integrated System
+                        </p>
 
-<label>
+                    </header>
 
-Passe a Word
+                    <form id="loginForm" autocomplete="off">
 
-</label>
+                        <div class="field">
 
-<input
-type="password"
-id="senha"
-placeholder="********"
->
+                            <label for="user">
+                                USER
+                            </label>
 
-<button onclick="entrar()">
+                            <input
+                                id="user"
+                                type="text"
+                                placeholder="ENTER USERNAME">
 
-Entrar no laboratório
+                        </div>
 
-</button>
+                        <div class="field">
 
-<p class="status">
+                            <label for="password">
+                                PASSWORD
+                            </label>
 
->Aguardando autenticação...
+                            <input
+                                id="password"
+                                type="password"
+                                placeholder="ENTER PASSWORD">
 
-</p>
+                        </div>
 
-</div>
+                        <button
+                            id="btnLogin"
+                            type="submit">
 
-</div>
+                            ACCESS SYSTEM
 
-<script src="script.js"></script>
+                        </button>
+
+                    </form>
+
+                    <footer class="login-footer">
+
+                        <span class="status-led"></span>
+
+                        <span id="statusText">
+
+                            Awaiting authentication...
+
+                        </span>
+
+                    </footer>
+
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- GATO -->
+        <aside class="character right-character">
+
+            <div class="character-glow"></div>
+
+            <img
+                src="img/gato.png"
+                alt="Gato"
+                id="cat">
+
+        </aside>
+
+    </main>
+
+    <!-- ÁUDIO -->
+    <audio
+        id="bootSound"
+        preload="auto">
+
+        <source src="audio/boot.mp3" type="audio/mpeg">
+
+    </audio>
+
+    <audio
+        id="typeSound"
+        preload="auto">
+
+        <source src="audio/type.mp3" type="audio/mpeg">
+
+    </audio>
+
+    <audio
+        id="successSound"
+        preload="auto">
+
+        <source src="audio/success.mp3" type="audio/mpeg">
+
+    </audio>
+
+    <script src="script.js"></script>
 
 </body>
 
