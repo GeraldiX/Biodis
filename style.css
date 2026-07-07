@@ -1,86 +1,259 @@
-body {
-    background-color: #000000; /* Preto absoluto do fundo da Matrix */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: 'Courier New', Courier, monospace; /* Fonte estilo terminal de computador */
-    margin: 0;
-    overflow: hidden;
+/* =========================================================
+   BIODIS v0.1
+========================================================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-.login-box {
-    background-color: rgba(0, 5, 0, 0.9); /* Caixinha preta quase invisível */
-    padding: 40px;
-    border-radius: 8px;
-    width: 340px;
-    color: #39ff14; /* Letras em Verde Neon clássico */
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    
-    /* Linha verde fina em volta e brilho neon suave */
-    border: 1px solid #00ff00; 
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); 
+body{
+
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+background:#d7d7d7;
+
+color:#222;
+
 }
 
-h1 {
-    text-align: center;
-    margin: 0;
-    font-size: 2.5rem;
-    letter-spacing: 4px;
-    /* Efeito de brilho no título principal */
-    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; 
+/* ================= TOPO ================= */
+
+.topo{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:30px;
+
+padding:35px;
+
+background:linear-gradient(#f4f4f4,#dcdcdc);
+
+border-bottom:4px solid #8f8f8f;
+
+box-shadow:0 4px 12px rgba(0,0,0,.2);
+
 }
 
-p {
-    text-align: center;
-    color: #00ff00;
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 0.9rem;
-    opacity: 0.8;
+.perfil{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
 }
 
-label {
-    font-weight: bold;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.avatar{
+
+width:90px;
+
+height:90px;
+
+border-radius:50%;
+
+overflow:hidden;
+
+background:#fff;
+
+border:3px solid #6f6f6f;
+
 }
 
-input {
-    padding: 12px;
-    background-color: #000000; /* Fundo do input também é preto */
-    border: 1px solid #00ff00; /* Borda verde */
-    border-radius: 4px;
-    color: #39ff14; /* Texto digitado sai em verde neon */
-    font-family: 'Courier New', monospace;
-    outline: none;
+.avatar img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
 }
 
-/* Deixa a borda do input brilhando quando você clica para digitar */
-input:focus {
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+.perfil h1{
+
+font-size:34px;
+
+margin-bottom:12px;
+
+font-family:"Courier New",monospace;
+
+color:#244a88;
+
 }
 
-button {
-    padding: 14px;
-    border: 1px solid #00ff00;
-    border-radius: 4px;
-    background-color: #00ff00; /* Botão todo verde */
-    color: #000000; /* Texto do botão em preto */
-    font-family: 'Courier New', monospace;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
+.perfil p{
+
+margin:6px 0;
+
 }
 
-/* Efeito visual quando passa o mouse por cima do botão */
-button:hover {
-    background-color: #000000;
-    color: #00ff00;
-    box-shadow: 0 0 15px #00ff00;
+/* ================= PROGRESSO ================= */
+
+.progresso{
+
+width:260px;
+
+}
+
+.progresso h2{
+
+margin-bottom:12px;
+
+font-size:22px;
+
+}
+
+.barra{
+
+width:100%;
+
+height:24px;
+
+background:#bdbdbd;
+
+border:2px solid #666;
+
+}
+
+.preenchimento{
+
+height:100%;
+
+width:18%;
+
+background:#45c96d;
+
+}
+
+/* ================= INTRO ================= */
+
+.intro{
+
+margin:30px auto;
+
+width:90%;
+
+background:white;
+
+padding:25px;
+
+border:2px solid #b9b9b9;
+
+box-shadow:0 3px 10px rgba(0,0,0,.15);
+
+font-size:18px;
+
+line-height:1.6;
+
+}
+
+/* ================= CATEGORIAS ================= */
+
+.categorias{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+margin:40px 0;
+
+}
+
+.categorias button{
+
+padding:16px 26px;
+
+font-size:17px;
+
+cursor:pointer;
+
+background:#ececec;
+
+border:2px solid #8f8f8f;
+
+transition:.2s;
+
+border-radius:8px;
+
+}
+
+.categorias button:hover{
+
+background:#d5e8ff;
+
+transform:translateY(-3px);
+
+}
+
+/* ================= FEED ================= */
+
+.feed{
+
+width:90%;
+
+margin:auto;
+
+background:white;
+
+padding:25px;
+
+border:2px solid #bcbcbc;
+
+box-shadow:0 3px 10px rgba(0,0,0,.15);
+
+margin-bottom:60px;
+
+}
+
+.feed h2{
+
+margin-bottom:15px;
+
+font-size:28px;
+
+color:#244a88;
+
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media(max-width:900px){
+
+.topo{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.perfil{
+
+flex-direction:column;
+
+}
+
+.progresso{
+
+width:100%;
+
+}
+
+.intro{
+
+font-size:16px;
+
+}
+
 }
