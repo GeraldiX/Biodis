@@ -1,63 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>BIODIS</title>
 
-<style>
-body{
-    margin:0;
-    font-family: Arial;
-    background:#0f1f17;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
-
-.box{
-    background:#163326;
-    padding:30px;
-    border-radius:15px;
-    width:320px;
-    text-align:center;
-}
-
-input{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-    border:none;
-    border-radius:8px;
-}
-
-button{
-    width:100%;
-    padding:10px;
-    border:none;
-    border-radius:8px;
-    background:#6ad06a;
-    cursor:pointer;
-    font-weight:bold;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
-<body>
+<body class="login">
 
-<div class="box">
-    <h1>🧬 BIODIS</h1>
-    <p>Arquivo Geraldão</p>
+<!-- IMAGENS -->
 
-    <input placeholder="Bio-nome">
-    <input type="password" placeholder="Passe a Word">
+<img src="assets/imagens/matrix.png" class="matrix">
+<img src="assets/imagens/cat.png" class="cat">
 
-    <a href="home.html">
-        <button type="button">Entrar no laboratório</button>
-    </a>
+<!-- TELA DE INICIALIZAÇÃO -->
+
+<div id="boot">
+
+<pre id="bootText">
+
+BIODIS BIOS v1.0
+
+Initializing...
+Loading biological database...
+Loading fungi...
+Loading plants...
+Loading weird discoveries...
+Connecting...
+
+██████████████████████
+
+SYSTEM READY
+
+</pre>
+
 </div>
 
+<!-- LOGIN -->
+
+<div class="terminal" id="loginBox">
+
+<div class="terminal-header">
+
+BIODIS
+
+</div>
+
+<div class="terminal-body">
+
+<p class="access">
+
+ACCESS TERMINAL
+
+</p>
+
+<label>
+
+Bio-nome
+
+</label>
+
+<input
+type="text"
+id="usuario"
+placeholder="Digite seu Bio-nome"
+>
+
+<label>
+
+Passe a Word
+
+</label>
+
+<input
+type="password"
+id="senha"
+placeholder="********"
+>
+
+<button onclick="entrar()">
+
+Entrar no laboratório
+
+</button>
+
+<p class="status">
+
+>Aguardando autenticação...
+
+</p>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
