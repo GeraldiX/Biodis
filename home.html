@@ -3,98 +3,579 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
 
-<title>BIODIS OS</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>BIODIS • Home</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Share+Tech+Mono&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
-<body class="home">
+<body class="home-page">
 
-<header class="topo">
+<canvas id="matrix"></canvas>
 
-<div class="perfil">
+<div class="bg-gradient"></div>
 
-<div class="avatar">
+<div class="grid-overlay"></div>
 
-<img src="assets/avatares/geraldao.png" alt="Avatar">
+<div class="scanlines"></div>
+
+<div class="vignette"></div>
+
+<div class="glitch-layer"></div>
+
+<div class="home-container">
+
+<header class="home-header">
+
+<div>
+
+<h1 class="home-title">
+BIODIS
+</h1>
+
+<p class="home-subtitle">
+
+BIOLOGICAL DATA INTEGRATED SYSTEM
+
+</p>
 
 </div>
 
 <div>
 
-<h1>BIODIS OS v1.0</h1>
+<button id="logout">
 
-<p><strong>Jogadora:</strong> Geraldão</p>
+ENCERRAR SESSÃO
 
-<p><strong>Nome civil:</strong> Letícia</p>
-
-<p><strong>Classe:</strong> Bióloga em treinamento</p>
-
-<p><strong>Mapa:</strong> UFRJ</p>
-
-<p><strong>Versão:</strong> 2026.2</p>
-
-</div>
-
-</div>
-
-<div class="progresso">
-
-<h2>Progresso</h2>
-
-<div class="barra">
-
-<div class="preenchimento"></div>
-
-</div>
-
-<p>18%</p>
+</button>
 
 </div>
 
 </header>
 
-<section class="intro">
+<section class="dashboard">
+
+<!-- ====================================== -->
+
+<div class="card">
+
+<h2>
+
+VISÃO GERAL
+
+</h2>
 
 <p>
 
-"O BIODIS nasceu para guardar minhas descobertas, minhas plantas,
-minhas observações e todas as pequenas bizarrices biológicas
-que encontro por aí."
+Bem-vindo ao sistema BIODIS.
+
+Todos os módulos encontram-se
+operacionais.
+
+O ambiente foi reconstruído do
+zero utilizando HTML, CSS e
+JavaScript puro mantendo uma
+identidade inspirada em BIOS,
+laboratórios futuristas e
+interfaces cyberpunk.
 
 </p>
 
-</section>
+</div>
 
-<nav class="categorias">
+<!-- ====================================== -->
 
-<button>🌿 Plantas</button>
+<div class="card">
 
-<button>🍄 Fungos</button>
+<h2>
 
-<button>🧭 Em Campo</button>
+STATUS DO SISTEMA
 
-<button>🔬 Descobertas</button>
+</h2>
 
-<button>🖼 Mosaico <small>(em breve)</small></button>
+<table>
 
-</nav>
+<tr>
 
-<section class="feed">
+<td>CPU</td>
 
-<h2>Registros</h2>
+<td>98%</td>
+
+</tr>
+
+<tr>
+
+<td>RAM</td>
+
+<td>12.4 GB</td>
+
+</tr>
+
+<tr>
+
+<td>DISCO</td>
+
+<td>74%</td>
+
+</tr>
+
+<tr>
+
+<td>NETWORK</td>
+
+<td>ONLINE</td>
+
+</tr>
+
+<tr>
+
+<td>DATABASE</td>
+
+<td>CONNECTED</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<!-- ====================================== -->
+
+<div class="card">
+
+<h2>
+
+PROCESSAMENTO
+
+</h2>
 
 <p>
 
-Nenhum registro disponível.
+Sequenciamento Biológico
 
 </p>
 
+<div class="progress">
+
+<span style="width:78%"></span>
+
+</div>
+
+<br>
+
+<p>
+
+Análise Molecular
+
+</p>
+
+<div class="progress">
+
+<span style="width:61%"></span>
+
+</div>
+
+<br>
+
+<p>
+
+Sincronização
+
+</p>
+
+<div class="progress">
+
+<span style="width:92%"></span>
+
+</div>
+
+</div>
+
+<!-- ====================================== -->
+
+<div class="card">
+
+<h2>
+
+LOGS
+
+</h2>
+
+<p>
+
+[22:14] Sistema iniciado.
+
+</p>
+
+<p>
+
+[22:15] Banco conectado.
+
+</p>
+
+<p>
+
+[22:16] Serviços autenticados.
+
+</p>
+
+<p>
+
+[22:17] IA operacional.
+
+</p>
+
+<p>
+
+[22:18] Ambiente seguro.
+
+</p>
+
+</div>
+
+<!-- ====================================== -->
+
+<div class="card">
+
+<h2>
+
+PESQUISAS
+
+</h2>
+
+<table>
+
+<tr>
+
+<td>Amostras</td>
+
+<td>284</td>
+
+</tr>
+
+<tr>
+
+<td>DNA</td>
+
+<td>128</td>
+
+</tr>
+
+<tr>
+
+<td>RNA</td>
+
+<td>81</td>
+
+</tr>
+
+<tr>
+
+<td>Proteínas</td>
+
+<td>75</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<!-- ====================================== -->
+
+<div class="card">
+
+<h2>
+
+MÓDULOS
+
+</h2>
+
+<p>
+
+✔ Bioinformática
+
+</p>
+
+<p>
+
+✔ Laboratório
+
+</p>
+
+<p>
+
+✔ IA
+
+</p>
+
+<p>
+
+✔ Histórico
+
+</p>
+
+<p>
+
+✔ Estatísticas
+
+</p>
+
+<p>
+
+✔ Segurança
+
+</p>
+
+</div>
+
+<!-- ====================================== -->
+
+<div class="card">
+
+<h2>
+
+ATIVIDADE
+
+</h2>
+
+<p>
+
+Usuários online
+
+</p>
+
+<div class="progress">
+
+<span style="width:43%"></span>
+
+</div>
+
+<br>
+
+<p>
+
+Processos ativos
+
+</p>
+
+<div class="progress">
+
+<span style="width:83%"></span>
+
+</div>
+
+</div>
+
+<!-- ====================================== -->
+
+<div class="card">
+
+<h2>
+
+ALERTAS
+
+</h2>
+
+<p>
+
+Nenhum incidente crítico.
+
+</p>
+
+<p>
+
+Firewall operacional.
+
+</p>
+
+<p>
+
+Backup automático ativo.
+
+</p>
+
+<p>
+
+Integridade dos dados:
+
+100%.
+
+</p>
+
+</div>
+<!-- ====================================== -->
+
+<div class="card">
+
+<h2>
+
+SERVIDORES
+
+</h2>
+
+<table>
+
+<tr>
+<td>NODE-01</td>
+<td>ONLINE</td>
+</tr>
+
+<tr>
+<td>NODE-02</td>
+<td>ONLINE</td>
+</tr>
+
+<tr>
+<td>NODE-03</td>
+<td>ONLINE</td>
+</tr>
+
+<tr>
+<td>NODE-04</td>
+<td>MAINTENANCE</td>
+</tr>
+
+<tr>
+<td>NODE-05</td>
+<td>ONLINE</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- ====================================== -->
+
+<div class="card">
+
+<h2>
+
+INTELIGÊNCIA ARTIFICIAL
+
+</h2>
+
+<p>
+
+Modelo principal carregado.
+
+</p>
+
+<p>
+
+Rede Neural:
+Estável.
+
+</p>
+
+<p>
+
+Treinamento:
+
+98.4%
+
+</p>
+
+<div class="progress">
+
+<span style="width:98%"></span>
+
+</div>
+
+</div>
+
+<!-- ====================================== -->
+
+<div class="card">
+
+<h2>
+
+BIODIS CORE
+
+</h2>
+
+<p>
+
+Sistema operacional experimental
+voltado para gerenciamento de
+pesquisas biológicas.
+
+</p>
+
+<p>
+
+Interface inspirada em
+BIOS, Cyberpunk,
+laboratórios futuristas
+e painéis holográficos.
+
+</p>
+
+</div>
+
+<!-- ====================================== -->
+
+<div class="card">
+
+<h2>
+
+ÚLTIMOS EVENTOS
+
+</h2>
+
+<p>
+
+• Backup concluído.
+
+</p>
+
+<p>
+
+• Banco sincronizado.
+
+</p>
+
+<p>
+
+• 14 novas amostras.
+
+</p>
+
+<p>
+
+• Nenhum erro registrado.
+
+</p>
+
+<p>
+
+• Sistema íntegro.
+
+</p>
+
+</div>
+
+<!-- ====================================== -->
+
 </section>
+
+</div>
 
 <script src="script.js"></script>
 
